@@ -1,6 +1,6 @@
 # 🛡️ Cybersecurity Intrusion Detection Dashboard
 
-## 📌 Project Overview
+##  Project Overview
 
 This project analyzes cybersecurity intrusion data and presents key insights through an interactive Streamlit dashboard. The goal is to identify suspicious activities, monitor attack patterns, and visualize security-related metrics in an easy-to-understand format.
 
@@ -8,7 +8,7 @@ The dashboard was built using Python and Streamlit and demonstrates data analysi
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 
 * Analyze network activity and login behavior.
 * Identify potential cyber attacks.
@@ -18,7 +18,7 @@ The dashboard was built using Python and Streamlit and demonstrates data analysi
 
 ---
 
-## 📊 Dataset Features
+##  Dataset Features
 
 The dataset contains information related to network sessions and user login activity.
 
@@ -40,7 +40,7 @@ The dataset contains information related to network sessions and user login acti
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 * Python
 * Pandas
@@ -52,7 +52,7 @@ The dataset contains information related to network sessions and user login acti
 
 ---
 
-## 📈 Dashboard Features
+##  Dashboard Features
 
 ### KPI Cards
 
@@ -76,7 +76,7 @@ The dataset contains information related to network sessions and user login acti
 
 ---
 
-## 🔍 Key Insights
+##  Key Insights
 
 * Sessions with higher failed login counts show a higher attack rate.
 * Certain network protocols are more frequently associated with attacks.
@@ -86,7 +86,7 @@ The dataset contains information related to network sessions and user login acti
 
 ---
 
-## 🚀 How to Run the Project
+##  How to Run the Project
 
 ### Clone the Repository
 
@@ -114,7 +114,7 @@ streamlit run dashboard.py
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 cybersecurity_project/
@@ -132,7 +132,7 @@ cybersecurity_project/
 
 ---
 
-## 💡 Skills Demonstrated
+##  Skills Demonstrated
 
 * Data Cleaning
 * Exploratory Data Analysis (EDA)
@@ -143,9 +143,3 @@ cybersecurity_project/
 * Git & GitHub Version Control
 
 ---
-
-## 👩‍💻 Author
-
-**Cheshta Grover**
-
-Aspiring Data Analyst passionate about transforming data into actionable insights through analytics and visualization.
