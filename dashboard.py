@@ -74,10 +74,7 @@ with col2:
     ax.set_ylabel("")
     st.pyplot(fig, use_container_width=True)
 
-# -----------------------------
-# Row 2
-# -----------------------------
-# col1, col2 = st.columns(2)
+
 
 with col3:
     st.subheader("Login Attempts Distribution")
@@ -91,6 +88,12 @@ with col3:
     )
 
     st.pyplot(fig, use_container_width=True)
+
+
+# -----------------------------
+# Row 2
+# -----------------------------
+
 
 col1, col2 ,col3 = st.columns(3)
 
@@ -107,10 +110,7 @@ with col1:
 
     st.pyplot(fig, use_container_width=True)
 
-# -----------------------------
-# Row 3
-# -----------------------------
-# col1, col2 = st.columns(2)
+
 
 with col2:
     st.subheader("Failed Logins vs Attack Rate")
