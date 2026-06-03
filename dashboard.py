@@ -2,7 +2,14 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+plt.rcParams.update({
+    'font.size': 8,
+    'axes.titlesize': 10,
+    'axes.labelsize': 8,
+    'xtick.labelsize': 7,
+    'ytick.labelsize': 7,
+    'legend.fontsize': 7
+})
 # -----------------------------
 # Page Config
 # -----------------------------
@@ -49,7 +56,7 @@ col1, col2 ,col3 = st.columns(3)
 with col1:
     st.subheader("Attack Distribution")
 
-    fig, ax = plt.subplots(figsize=(4, 3))
+    fig, ax = plt.subplots(figsize=(3, 2))
 
     df["attack_detected"].value_counts().plot(
         kind="pie",
@@ -63,7 +70,7 @@ with col1:
 with col2:
     st.subheader("Encryption Usage")
 
-    fig, ax = plt.subplots(figsize=(4, 3))
+    fig, ax = plt.subplots(figsize=(3, 2))
 
     df["encryption_used"].value_counts().plot(
         kind="pie",
@@ -79,7 +86,7 @@ with col2:
 with col3:
     st.subheader("Login Attempts Distribution")
 
-    fig, ax = plt.subplots(figsize=(4, 4))
+    fig, ax = plt.subplots(figsize=(3, 3))
 
     sns.histplot(
         df["login_attempts"],
@@ -100,7 +107,7 @@ col1, col2 ,col3 = st.columns(3)
 with col1:
     st.subheader("IP Reputation Score")
 
-    fig, ax = plt.subplots(figsize=(4, 3))
+    fig, ax = plt.subplots(figsize=(3, 2))
 
     sns.histplot(
         df["ip_reputation_score_least_trustworthy"],
@@ -115,7 +122,7 @@ with col1:
 with col2:
     st.subheader("Failed Logins vs Attack Rate")
 
-    fig, ax = plt.subplots(figsize=(4, 3))
+    fig, ax = plt.subplots(figsize=(3, 2))
 
     df.groupby("failed_logins")["attack_detected"].mean().plot(
         kind="bar",
@@ -129,7 +136,7 @@ with col2:
 with col3:
     st.subheader("Protocol-wise Attack Rate")
 
-    fig, ax = plt.subplots(figsize=(4, 3))
+    fig, ax = plt.subplots(figsize=(3, 2))
 
     df.groupby("protocol_type")["attack_detected"].mean().plot(
         kind="bar",
@@ -145,21 +152,34 @@ with col3:
 # -----------------------------
 st.subheader("Correlation Heatmap")
 
-fig, ax = plt.subplots(figsize=(6, 4))
+left, center, right = st.columns([1, 2, 1])
 
-sns.heatmap(
-    df.corr(numeric_only=True),
-    annot=True,
-    fmt=".2f",
-    cmap="coolwarm",
-    annot_kws={"size": 6},
-    ax=ax
-)
+with center:
 
-plt.xticks(rotation=45, ha='right')
-plt.yticks(rotation=0)
+    cols = [
+        'login_attempts',
+        'failed_logins',
+        'attack_detected',
+        'risk_score'
+]
 
-st.pyplot(fig, use_container_width=True)
+    fig, ax = plt.subplots(figsize=(3, 2))
+
+    sns.heatmap(
+        df[cols].corr(),
+        annot=True,
+        fmt=".2f",
+        cmap="coolwarm",
+        annot_kws={"size":4},
+        ax=ax
+    )
+
+    ax.tick_params(axis='x', labelsize=5)
+    ax.tick_params(axis='y', labelsize=5)
+
+    plt.tight_layout()
+
+    st.pyplot(fig)          
 
 # -----------------------------
 # Data Preview
