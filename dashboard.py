@@ -145,15 +145,19 @@ with col3:
 # -----------------------------
 st.subheader("Correlation Heatmap")
 
-fig, ax = plt.subplots(figsize=(6, 3))
+fig, ax = plt.subplots(figsize=(6, 4))
 
 sns.heatmap(
     df.corr(numeric_only=True),
     annot=True,
     fmt=".2f",
     cmap="coolwarm",
+    annot_kws={"size": 6},
     ax=ax
 )
+
+plt.xticks(rotation=45, ha='right')
+plt.yticks(rotation=0)
 
 st.pyplot(fig, use_container_width=True)
 
