@@ -7,7 +7,7 @@ This project analyzes cybersecurity intrusion data and presents key insights thr
 The dashboard was built using Python and Streamlit and demonstrates data analysis, visualization, and dashboard development skills.
 
 ---
-
+![Dashboard](screenshots/dashboard.png)
 ##  Objectives
 
 * Analyze network activity and login behavior.
