@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 plt.rcParams.update({
     'font.size': 8,
-    'axes.titlesize': 10,
-    'axes.labelsize': 8,
-    'xtick.labelsize': 7,
-    'ytick.labelsize': 7,
-    'legend.fontsize': 7
+    'axes.titlesize': 8,
+    'axes.labelsize': 7,
+    'xtick.labelsize': 5,
+    'ytick.labelsize': 5,
+    'legend.fontsize': 5
 })
 # -----------------------------
 # Page Config
@@ -105,17 +105,30 @@ with col3:
 col1, col2 ,col3 = st.columns(3)
 
 with col1:
-    st.subheader("IP Reputation Score")
+    st.subheader("IP reputation Score")
 
-    fig, ax = plt.subplots(figsize=(3, 2))
+    reputation_cols = [
+    'ip_reputation_score_excellent_reputation',
+    'ip_reputation_score_suspicious',
+    'ip_reputation_score_least_trustworthy'
+    ]
 
-    sns.histplot(
-        df["ip_reputation_score_least_trustworthy"],
-        bins=15,
+    counts = df[reputation_cols].sum()
+
+    fig, ax = plt.subplots(figsize=(4,3))
+
+    counts.plot(
+        kind='barh',
         ax=ax
     )
 
-    st.pyplot(fig, use_container_width=True)
+    ax.set_title("IP Reputation Categories")
+    ax.set_ylabel("Count")
+
+    ax.tick_params(axis='x', labelsize=10)
+    ax.tick_params(axis='y', labelsize=10)
+    plt.xticks(rotation=65, ha='right')
+    st.pyplot(fig)  
 
 
 
