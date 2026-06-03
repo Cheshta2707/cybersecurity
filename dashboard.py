@@ -19,7 +19,7 @@ df = pd.read_csv("cybersecurity_intrusive_data_cleaned.csv")
 # -----------------------------
 # Title
 # -----------------------------
-st.title(" Cybersecurity Intrusion Dashboard")
+st.title("🛡️ Cybersecurity Intrusion Dashboard")
 
 # -----------------------------
 # KPI Cards
